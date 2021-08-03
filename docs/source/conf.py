@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 import sphinx_rtd_theme
 
-project = 'SunFounder Super Kit v3'
+project = 'SunFounder Super Kit v2'
 copyright = '2021, sunfounder'
 author = 'www.sunfounder.com'
 
