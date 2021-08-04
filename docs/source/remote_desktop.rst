@@ -125,7 +125,7 @@ Input the following instructions to install XRDP.
 
 Later, the installation starts.
 
-Enter "Y", press key “Enter” to confirm.
+Enter \"Y\", press key “Enter” to confirm.
 
 .. image:: media/image295.png
    :align: center

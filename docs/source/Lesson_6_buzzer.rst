@@ -88,6 +88,35 @@ For C Language Users:
 
     sudo ./beep
 
+**Code**
+
+.. code-block:: c
+    
+    #include <wiringPi.h>
+    #include <stdio.h>
+
+    #define BeepPin 0
+
+    int main(void)
+    {
+        if(wiringPiSetup() == -1){ //when initialize wiring failed,print messageto screen
+            printf("setup wiringPi failed !");
+            return 1; 
+        }
+        
+        pinMode(BeepPin, OUTPUT);   //set GPIO0 output
+
+        while(1){
+            digitalWrite(BeepPin, LOW);  //beep on
+            delay(100);                  //delay
+            digitalWrite(BeepPin, HIGH); //beep off
+            delay(100);                  //delay
+        }
+
+        return 0;
+    }
+
+
 For Python Users:
 ^^^^^^^^^^^^^^^^^^^
 
@@ -107,6 +136,45 @@ Now, you should hear the buzzer make sounds.
 
 .. image:: media/image111.png
     :align: center
+
+
+
+
+**Code**    
+    
+.. code-block:: python
+
+    import RPi.GPIO as GPIO
+    import time
+
+    BeepPin = 17
+
+    def setup():
+        GPIO.setmode(GPIO.BCM)        # Numbers GPIOs by BCM
+        GPIO.setup(BeepPin, GPIO.OUT)   # Set BeepPin's mode is output
+        GPIO.output(BeepPin, GPIO.HIGH) # Set BeepPin high(+3.3V) to off beep
+
+    def loop():
+        while True:
+            GPIO.output(BeepPin, GPIO.LOW)
+            time.sleep(0.1)
+            GPIO.output(BeepPin, GPIO.HIGH)
+            time.sleep(0.1)
+
+    def destroy():
+        GPIO.output(BeepPin, GPIO.HIGH)    # beep off
+        GPIO.cleanup()                     # Release resource
+
+    if __name__ == '__main__':     # Program start from here
+        print ("Press Ctrl+C to end the program...")
+        setup()
+        try:
+            loop()
+        except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
+            destroy()
+    
+        
+        
 
 Further Exploration
 -------------------------

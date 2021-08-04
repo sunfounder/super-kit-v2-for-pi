@@ -132,6 +132,56 @@ For C Language Users:
 
     sudo ./motor
 
+**Code**
+
+.. code-block:: c   
+
+    #include <wiringPi.h>
+    #include <stdio.h>
+    
+    #define MotorPin1    0
+    #define MotorPin2    1
+    #define MotorEnable  2
+    
+    int main(void)
+    {
+        if(wiringPiSetup() == -1){ //when initialize wiring failed,print messageto screen
+            printf("setup wiringPi failed !");
+            return 1; 
+        }
+        
+        pinMode(MotorPin1, OUTPUT);
+        pinMode(MotorPin2, OUTPUT);
+        pinMode(MotorEnable, OUTPUT);
+    
+        int i;
+    
+        while(1){
+            digitalWrite(MotorEnable, HIGH);
+            digitalWrite(MotorPin1, HIGH);
+            digitalWrite(MotorPin2, LOW);
+            for(i=0;i<3;i++){
+                delay(1000);
+            }
+    
+            digitalWrite(MotorEnable, LOW);
+                delay(1000);
+    
+            digitalWrite(MotorEnable, HIGH);
+            digitalWrite(MotorPin1, LOW);
+            digitalWrite(MotorPin2, HIGH);
+            for(i=0;i<3;i++){
+                delay(1000);
+            }
+    
+            digitalWrite(MotorEnable, LOW);
+                            delay(1000);
+    
+        }
+    
+        return 0;
+    }
+
 For Python Users:
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -152,6 +202,53 @@ Now, you should see the motor blade rotating.
 .. image:: media/image119.png
     :align: center
 
+**Code**    
+    
+.. code-block:: python
+
+    import RPi.GPIO as GPIO
+    import time
+    
+    MotorPin1   = 17
+    MotorPin2   = 18
+    MotorEnable = 27
+    
+    def setup():
+        GPIO.setmode(GPIO.BCM)          # Numbers GPIOs by BCM
+        GPIO.setup(MotorPin1, GPIO.OUT)   # mode --- output
+        GPIO.setup(MotorPin2, GPIO.OUT)
+        GPIO.setup(MotorEnable, GPIO.OUT)
+        GPIO.output(MotorEnable, GPIO.LOW) # motor stop
+    
+    def loop():
+        while True:
+            print ("Press Ctrl+C to end the program...")
+            GPIO.output(MotorEnable, GPIO.HIGH) # motor driver enable
+            GPIO.output(MotorPin1, GPIO.HIGH)  # clockwise
+            GPIO.output(MotorPin2, GPIO.LOW)
+            time.sleep(5)
+            
+            GPIO.output(MotorEnable, GPIO.LOW) # motor stop
+            time.sleep(5)
+            
+            GPIO.output(MotorEnable, GPIO.HIGH) # motor driver enable
+            GPIO.output(MotorPin1, GPIO.LOW)   # anticlockwise
+            GPIO.output(MotorPin2, GPIO.HIGH)
+            time.sleep(5)
+            
+            GPIO.output(MotorEnable, GPIO.LOW) # motor stop
+            time.sleep(5)
+    
+    def destroy():
+        GPIO.output(MotorEnable, GPIO.LOW) # motor stop
+        GPIO.cleanup()                     # Release resource
+    
+    if __name__ == '__main__':     # Program start from here
+        setup()
+        try:
+            loop()
+        except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
+            destroy()
 
 Further Exploration
 ----------------------------

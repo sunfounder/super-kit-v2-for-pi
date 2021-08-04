@@ -81,6 +81,59 @@ For C Language Users:
 
     sudo ./8Led
 
+**Code**
+
+.. code-block:: c
+
+    #include <wiringPi.h>
+    #include <stdio.h>
+    
+    //make led_n on
+    void led_on(int n)
+    {
+        digitalWrite(n, LOW);
+    }
+    
+    //make led_n off
+    void led_off(int n)
+    {
+        digitalWrite(n, HIGH);
+    }
+    
+    int main(void)
+    {
+        int i;
+    
+        if(wiringPiSetup() == -1){ //when initialize wiring failed,print messageto screen
+            printf("setup wiringPi failed !");
+            return 1; 
+        }
+    
+        for(i=0;i<8;i++){
+            printf("linker LedPin : GPIO %d(wiringPi pin)\n",i); //when initialize wiring successfully,print message to screen
+        }
+    
+        for(i=0;i<8;i++){       //make 8 pins' mode is output
+            pinMode(i, OUTPUT);
+        }
+    
+        while(1){
+            for(i=0;i<8;i++){   //make led on from left to right
+                led_on(i);
+                delay(100);
+                led_off(i);
+            }
+        //	delay(500);
+            for(i=8;i>=0;i--){  //make led off from right to left
+                led_on(i);
+                delay(100);
+                led_off(i);
+            }
+        }
+    
+        return 0;
+    }
+
 For Python Users:
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -103,6 +156,43 @@ left circularly, just like flowing water.
 .. image:: media/image97.png
     :align: center
 
+**Code**
+
+.. code-block:: python
+
+    import RPi.GPIO as GPIO
+    import time
+    
+    pins = [17, 18, 27, 22, 23, 24, 25, 4]
+    
+    def setup():
+        GPIO.setmode(GPIO.BCM)        # Numbers GPIOs by BCM
+        for pin in pins:
+            GPIO.setup(pin, GPIO.OUT)   # Set all pins' mode is output
+            GPIO.output(pin, GPIO.HIGH) # Set all pins to high(+3.3V) to off led
+    
+    def loop():
+        while True:
+            for pin in pins:
+                GPIO.output(pin, GPIO.LOW)	
+                time.sleep(0.05)
+                GPIO.output(pin, GPIO.HIGH)
+            for pin in reversed(pins):
+                GPIO.output(pin, GPIO.LOW)
+                time.sleep(0.05)
+                GPIO.output(pin, GPIO.HIGH)
+    
+    def destroy():
+        for pin in pins:
+            GPIO.output(pin, GPIO.HIGH)    # turn off all leds
+        GPIO.cleanup()                     # Release resource
+    
+    if __name__ == '__main__':     # Program start from here
+        setup()
+        try:
+            loop()
+        except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
+            destroy()
 
 **Further Exploration**
 

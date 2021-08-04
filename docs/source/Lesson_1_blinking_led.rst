@@ -83,6 +83,37 @@ For C Language Users:
 
     sudo ./led
 
+**Code**
+
+.. code-block:: c
+
+    #include <wiringPi.h>
+    #include <stdio.h>
+
+    #define  LedPin    0
+
+    int main(void)
+    {
+        if(wiringPiSetup() == -1){ //when initialize wiring failed,print messageto screen
+            printf("setup wiringPi failed !");
+            return 1; 
+        }
+        printf("linker LedPin : GPIO %d(wiringPi pin)\n",LedPin); //when initialize wiring successfully,print message to screen
+        
+        pinMode(LedPin, OUTPUT);
+
+        while(1){
+                digitalWrite(LedPin, LOW);  //led on
+                printf("led on...\n");
+                delay(500);
+                digitalWrite(LedPin, HIGH);  //led off
+                printf("...led off\n");
+                delay(500);
+        }
+
+        return 0;
+    }
+
 For Python Users:
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -102,6 +133,41 @@ Now, you should see the LED blink.
 
 .. image:: media/image87.png
     :align: center
+
+
+**Code**
+
+.. code-block:: python
+    
+    import RPi.GPIO as GPIO
+    import time
+
+    LedPin = 17
+
+    def setup():
+        GPIO.setmode(GPIO.BCM)       # Numbers GPIOs by BCM
+        GPIO.setup(LedPin, GPIO.OUT)   # Set LedPin's mode is output
+        GPIO.output(LedPin, GPIO.HIGH) # Set LedPin high(+3.3V) to off led
+
+    def loop():
+        while True:
+            print ("...led on")
+            GPIO.output(LedPin, GPIO.LOW)  # led on
+            time.sleep(0.5)
+            print ("led off...")
+            GPIO.output(LedPin, GPIO.HIGH) # led off
+            time.sleep(0.5)
+
+    def destroy():
+        GPIO.output(LedPin, GPIO.HIGH)     # led off
+        GPIO.cleanup()                     # Release resource
+
+    if __name__ == '__main__':     # Program start from here
+        setup()
+        try:
+            loop()
+        except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
+            destroy()
 
 Further Exploration
 ------------------------

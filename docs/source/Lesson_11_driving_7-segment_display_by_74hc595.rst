@@ -128,6 +128,67 @@ For C Language Users:
 
     sudo ./segment1
 
+**Code**
+
+.. code-block:: c 
+
+    #include <wiringPi.h>
+    #include <stdio.h>
+    
+    #define   SDI   0   //serial data input
+    #define   RCLK  1   //memory clock input(STCP)
+    #define   SRCLK 2   //shift register clock input(SHCP)
+    
+    unsigned char SegCode[17] = {0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71,0x80};
+    
+    void init(void)
+    {
+        pinMode(SDI, OUTPUT); //make P0 output
+        pinMode(RCLK, OUTPUT); //make P0 output
+        pinMode(SRCLK, OUTPUT); //make P0 output
+    
+        digitalWrite(SDI, 0);
+        digitalWrite(RCLK, 0);
+        digitalWrite(SRCLK, 0);
+    }
+    
+    void hc595_shift(unsigned char dat)
+    {
+        int i;
+    
+        for(i=0;i<8;i++){
+            digitalWrite(SDI, 0x80 & (dat << i));
+            digitalWrite(SRCLK, 1);
+            delay(1);
+            digitalWrite(SRCLK, 0);
+        }
+    
+            digitalWrite(RCLK, 1);
+            delay(1);
+            digitalWrite(RCLK, 0);
+    }
+    
+    int main(void)
+    {
+        int i;
+    
+        if(wiringPiSetup() == -1){ //when initialize wiring failed,print messageto screen
+            printf("setup wiringPi failed !");
+            return 1; 
+        }
+    
+        init();
+    
+        while(1){
+            for(i=0;i<17;i++){
+                hc595_shift(SegCode[i]);
+                delay(500);
+            }
+        }
+    
+        return 0;
+    }
+
 For Python Users:
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -147,6 +208,60 @@ You should see the 7-segment display from 0 to 9, and A to F.
 
 .. image:: media/image141.png
     :align: center
+
+**Code**    
+    
+.. code-block:: python
+
+    import RPi.GPIO as GPIO
+    import time
+    
+    SDI   = 17
+    RCLK  = 18
+    SRCLK = 27
+    
+    segCode = [0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71,0x80]
+    
+    def print_msg():
+        print ("Program is running...")
+        print ("Please press Ctrl+C to end the program...")
+    
+    def setup():
+        GPIO.setmode(GPIO.BCM)    #Number GPIOs by BCM
+        GPIO.setup(SDI, GPIO.OUT)
+        GPIO.setup(RCLK, GPIO.OUT)
+        GPIO.setup(SRCLK, GPIO.OUT)
+        GPIO.output(SDI, GPIO.LOW)
+        GPIO.output(RCLK, GPIO.LOW)
+        GPIO.output(SRCLK, GPIO.LOW)
+    
+    def hc595_shift(dat):
+        for bit in range(0, 8):	
+            GPIO.output(SDI, 0x80 & (dat << bit))
+            GPIO.output(SRCLK, GPIO.HIGH)
+            time.sleep(0.001)
+            GPIO.output(SRCLK, GPIO.LOW)
+        GPIO.output(RCLK, GPIO.HIGH)
+        time.sleep(0.001)
+        GPIO.output(RCLK, GPIO.LOW)
+    
+    def loop():
+        while True:
+            for i in range(0, len(segCode)):
+                hc595_shift(segCode[i])
+                time.sleep(0.5)
+    
+    def destroy():   #When program ending, the function is executed. 
+        GPIO.cleanup()
+    
+    if __name__ == '__main__': #Program starting from here 
+        print_msg()
+        setup() 
+        try:
+            loop()  
+        except KeyboardInterrupt:  
+            destroy()  
+
 
 Further Exploration
 -----------------------

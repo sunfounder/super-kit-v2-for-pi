@@ -120,6 +120,42 @@ For C Language Users:
 
     sudo ./timer555
 
+**Code**
+
+.. code-block:: c 
+
+    #include <stdio.h>
+    #include <string.h>
+    #include <errno.h>
+    #include <stdlib.h>
+    #include <wiringPi.h>
+    
+    #define  Pin0  0
+    
+    static volatile int globalCounter = 0 ;
+    
+    void exInt0_ISR(void)  //GPIO0 interrupt service routine 
+    {
+        ++globalCounter;
+    }
+    
+    int main (void)
+    {
+      if(wiringPiSetup() < 0){
+          fprintf(stderr, "Unable to setup wiringPi:%s\n",strerror(errno));
+        return 1;
+      }
+    
+      wiringPiISR(Pin0, INT_EDGE_FALLING, &exInt0_ISR);
+    
+       while(1){
+        printf("Current pluse number is : %d\n", globalCounter);
+      }
+    
+      return 0;
+    }
+
+
 For Python Users:
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -141,3 +177,37 @@ have learned previously.
 
 .. image:: media/image131.png
     :align: center
+
+
+**Code**    
+    
+.. code-block:: python
+
+    import RPi.GPIO as GPIO
+
+    SigPin = 17
+
+    g_count = 0
+
+    def count(ev=None):
+        global g_count
+        g_count += 1
+
+    def setup():
+        GPIO.setmode(GPIO.BCM)       # Numbers GPIOs by BCM
+        GPIO.setup(SigPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)    # Set Pin's mode is input, and pull up to high level(3.3V)
+        GPIO.add_event_detect(SigPin, GPIO.RISING, callback=count) # wait for rasing
+
+    def loop():
+        while True:
+            print ("g_count = %d" % g_count)
+
+    def destroy():
+        GPIO.cleanup()    # Release resource
+
+    if __name__ == '__main__':     # Program start from here
+        setup()
+        try:
+            loop()
+        except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
+            destroy()

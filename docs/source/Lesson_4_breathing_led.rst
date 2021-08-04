@@ -32,7 +32,7 @@ results with digital means. Digital control is used to create a square
 wave, a signal switched between on and off. This on-off pattern can
 simulate voltages in between full on (3.3 Volts) and off (0 Volts) by
 changing the portion of the time the signal spends on versus the time
-that the signal spends off. The duration of "on time" is called pulse
+that the signal spends off. The duration of \"on time\" is called pulse
 width. To get varying analog values, you change, or modulate, that
 width. If you repeat this on-off pattern fast enough with some device,
 an LED for example, the result would be like this: the signal is a
@@ -50,8 +50,8 @@ on-and-off cycle. As a formula, a duty cycle may be expressed as:
 
 where **D** is the duty cycle, **T** is the time the signal is active,
 and **P** is the total period of the signal. Thus, a 60% duty cycle
-means the signal is on 60% of the time but off 40% of the time. The "on
-time" for a 60% duty cycle could be a fraction of a second, a day, or
+means the signal is on 60% of the time but off 40% of the time. The \"on
+time\" for a 60% duty cycle could be a fraction of a second, a day, or
 even a week, depending on the length of the period.
 
 
@@ -100,6 +100,43 @@ For C Language Users:
     
     sudo ./PwmLed
 
+**Code**
+
+.. code-block:: c   
+
+    #include <wiringPi.h>
+    #include <softPwm.h>
+    #include <stdio.h>
+    
+    #define LedPin    1
+    
+    int main(void)
+    {
+        int i;
+    
+        if(wiringPiSetup() == -1){ //when initialize wiring failed,print messageto screen
+            printf("setup wiringPi failed !");
+            return 1;
+        }
+    
+        softPwmCreate(LedPin, 0, 100);
+    
+        while(1){
+            for(i=0;i<=100;i++){
+                softPwmWrite(LedPin, i);
+                delay(20);
+            }
+            delay(1000);
+            for(i=100;i>=0;i--){
+                softPwmWrite(LedPin, i);
+                delay(20);
+            }
+        }
+    
+        return 0;
+    }
+    
+
 For Python Users:
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -121,6 +158,46 @@ and dim.
 
 .. image:: media/image104.png
     :align: center
+
+**Code**
+
+.. code-block:: python
+    
+    import RPi.GPIO as GPIO
+    import time
+
+    LedPin = 18
+
+    def setup():
+        global p
+        GPIO.setmode(GPIO.BCM)       # Numbers GPIOs by BCM
+        GPIO.setup(LedPin, GPIO.OUT)   # Set LedPin's mode is output
+        GPIO.output(LedPin, GPIO.LOW)  # Set LedPin to low(0V)
+
+        p = GPIO.PWM(LedPin, 1000)     # set Frequece to 1KHz
+        p.start(0)                     # Duty Cycle = 0
+
+    def loop():
+        while True:
+            for dc in range(0, 101, 4):   # Increase duty cycle: 0~100
+                p.ChangeDutyCycle(dc)     # Change duty cycle
+                time.sleep(0.05)
+            time.sleep(1)
+            for dc in range(100, -1, -4): # Decrease duty cycle: 100~0
+                p.ChangeDutyCycle(dc)
+                time.sleep(0.05)
+            time.sleep(1)
+
+    def destroy():
+        p.stop()
+        GPIO.cleanup()
+
+    if __name__ == '__main__':     # Program start from here
+        setup()
+        try:
+            loop()
+        except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
+            destroy()
 
 Summary
 -------------

@@ -92,6 +92,37 @@ For C Language Users:
 
     sudo ./BtnAndLed
 
+**Code**
+
+.. code-block:: C
+
+    #include <wiringPi.h>
+    #include <stdio.h>
+
+    #define LedPin    0
+    #define ButtonPin 1
+
+    int main(void)
+    {
+        if(wiringPiSetup() == -1){ //when initialize wiring failed,print messageto screen
+            printf("setup wiringPi failed !");
+            return 1; 
+        }
+        
+        pinMode(LedPin, OUTPUT); 
+        pinMode(ButtonPin, INPUT);
+
+        pullUpDnControl(ButtonPin, PUD_UP);  //pull up to 3.3V,make GPIO1 a stable level
+        while(1){
+            digitalWrite(LedPin, HIGH);
+            if(digitalRead(ButtonPin) == 0){ //indicate that button has pressed down
+                digitalWrite(LedPin, LOW);   //led on
+            }
+        }
+
+        return 0;
+    }
+
 **For Python Users:**
 
 **Step 2:** Change directory.
@@ -114,6 +145,49 @@ will be printed on the screen.
 .. image:: media/image94.png
     :align: center
 
+
+**Code**
+
+.. code-block:: python    
+        
+    import RPi.GPIO as GPIO
+    import time
+    
+    LedPin = 17 
+    BtnPin = 18
+    
+    Led_status = 1
+    
+    def setup():
+        GPIO.setmode(GPIO.BCM)       # Numbers GPIOs by BCM
+        GPIO.setup(LedPin, GPIO.OUT)   # Set LedPin's mode is output
+        GPIO.setup(BtnPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)    # Set BtnPin's mode is input, and pull up to high level(3.3V)
+        GPIO.output(LedPin, GPIO.HIGH) # Set LedPin high(+3.3V) to off led
+    
+    def swLed(ev=None):
+        global Led_status
+        Led_status = not Led_status
+        GPIO.output(LedPin, Led_status)  # switch led status(on-->off; off-->on)
+        if Led_status == 1:
+            print ("led off...")
+        else:
+            print ("...led on")
+    
+    def loop():
+        GPIO.add_event_detect(BtnPin, GPIO.FALLING, callback=swLed, bouncetime=200) # wait for falling and set bouncetime to prevent the callback function from being called multiple times when the button is pressed
+        while True:
+            time.sleep(1)   # Don't do anything
+    
+    def destroy():
+        GPIO.output(LedPin, GPIO.HIGH)     # led off
+        GPIO.cleanup()                     # Release resource
+    
+    if __name__ == '__main__':     # Program start from here
+        setup()
+        try:
+            loop()
+        except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
+            destroy()
 
 Summary
 ----------------
