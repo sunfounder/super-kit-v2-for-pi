@@ -152,10 +152,6 @@ For Python Users:
 Then you will see eight LEDs brighten and dim left to right and right to
 left circularly, just like flowing water.
 
-
-.. image:: media/image97.png
-    :align: center
-
 **Code**
 
 .. code-block:: python
@@ -193,6 +189,12 @@ left circularly, just like flowing water.
             loop()
         except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
             destroy()
+
+
+
+
+.. image:: media/image97.png
+    :align: center
 
 **Further Exploration**
 

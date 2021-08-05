@@ -194,9 +194,6 @@ the above program, and you will see the value printed on the screen.
 Rotate the encoder clockwise, the value will increase; or rotate it
 counterclockwise, the value will decrease.
 
-.. image:: media/image122.png
-    :align: center
-
 **Code**    
     
 .. code-block:: python
@@ -270,6 +267,11 @@ counterclockwise, the value will decrease.
         # destroy() will be  executed.
         except KeyboardInterrupt:
             destroy()
+
+
+
+.. image:: media/image122.png
+    :align: center
 
 Further Exploration
 ----------------------

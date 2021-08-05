@@ -129,11 +129,8 @@ For Python Users:
 
     sudo python3 01_led.py
 
+
 Now, you should see the LED blink.
-
-.. image:: media/image87.png
-    :align: center
-
 
 **Code**
 
@@ -168,6 +165,11 @@ Now, you should see the LED blink.
             loop()
         except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
             destroy()
+
+
+.. image:: media/image87.png
+    :align: center
+
 
 Further Exploration
 ------------------------

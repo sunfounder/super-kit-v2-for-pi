@@ -206,9 +206,6 @@ For Python Users:
 
 You should see the 7-segment display from 0 to 9, and A to F.
 
-.. image:: media/image141.png
-    :align: center
-
 **Code**    
     
 .. code-block:: python
@@ -262,6 +259,10 @@ You should see the 7-segment display from 0 to 9, and A to F.
         except KeyboardInterrupt:  
             destroy()  
 
+
+
+.. image:: media/image141.png
+    :align: center
 
 Further Exploration
 -----------------------

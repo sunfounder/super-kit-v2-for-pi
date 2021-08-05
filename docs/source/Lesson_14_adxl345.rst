@@ -190,9 +190,6 @@ For Python Users:
 Now, rotate the acceleration sensor, and you should see the values
 printed on the screen change.
 
-.. image:: media/image153.png
-    :align: center
-
 **Code**    
     
 .. code-block:: python
@@ -305,3 +302,8 @@ printed on the screen change.
             main()
         except KeyboardInterrupt:
             destroy()
+
+
+
+.. image:: media/image153.png
+    :align: center

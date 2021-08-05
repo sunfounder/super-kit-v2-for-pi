@@ -199,9 +199,6 @@ For Python Users:
 
 Now, you should see the motor blade rotating.
 
-.. image:: media/image119.png
-    :align: center
-
 **Code**    
     
 .. code-block:: python
@@ -249,6 +246,11 @@ Now, you should see the motor blade rotating.
             loop()
         except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
             destroy()
+
+
+
+.. image:: media/image119.png
+    :align: center
 
 Further Exploration
 ----------------------------

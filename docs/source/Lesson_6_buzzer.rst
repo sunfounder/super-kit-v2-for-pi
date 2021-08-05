@@ -132,11 +132,8 @@ For Python Users:
 
     sudo python3 06_beep.py
 
+
 Now, you should hear the buzzer make sounds.
-
-.. image:: media/image111.png
-    :align: center
-
 
 
 
@@ -174,7 +171,10 @@ Now, you should hear the buzzer make sounds.
             destroy()
     
         
-        
+
+
+.. image:: media/image111.png
+    :align: center        
 
 Further Exploration
 -------------------------

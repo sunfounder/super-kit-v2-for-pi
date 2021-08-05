@@ -202,9 +202,6 @@ For Python Users:
 
 You should see LEDs light up as you control.
 
-.. image:: media/image148.png
-    :align: center
-
 
 **Code**    
     
@@ -271,6 +268,11 @@ You should see LEDs light up as you control.
             loop()  
         except KeyboardInterrupt:  
             destroy() 
+
+
+
+.. image:: media/image148.png
+    :align: center
 
 Summary
 ----------

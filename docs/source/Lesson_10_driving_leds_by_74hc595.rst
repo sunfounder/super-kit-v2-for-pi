@@ -297,6 +297,9 @@ Here you should see eight LEDs blink regularly.
         except KeyboardInterrupt:
             destroy()
 
+
+
+
 Further Exploration
 ----------------------
 

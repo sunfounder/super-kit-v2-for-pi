@@ -19,9 +19,6 @@ disabled. You need to enable it in config.
 
 Input the following command:
 
-.. raw:: html
-
-   <run></run>
 
 .. code-block:: 
 
@@ -60,7 +57,7 @@ You need to download and install the `VNC Viewer <https://www.realvnc.com/en/con
 
 **Step 2**
 
-Then select “\ **New connection**\ ”.
+Then select \"**New connection**\".
 
 .. image:: media/image290.png
    :align: center
@@ -112,9 +109,6 @@ Login to Raspberry Pi by using SSH.
 
 Input the following instructions to install XRDP.
 
-.. raw:: html
-
-   <run></run>
 
 .. code-block:: 
 
@@ -125,7 +119,7 @@ Input the following instructions to install XRDP.
 
 Later, the installation starts.
 
-Enter \"Y\", press key “Enter” to confirm.
+Enter \"Y\", press key \"Enter\" to confirm.
 
 .. image:: media/image295.png
    :align: center
@@ -146,9 +140,9 @@ difference between the two. The next example is Windows remote desktop.
 
 **Step 2**
 
-Type in“\ **mstsc**\ ” in Run (WIN+R) to open the Remote Desktop
+Type in \"**mstsc**\" in Run (WIN+R) to open the Remote Desktop
 Connection, and input the IP address of Raspberry Pi, then click on
-“Connect”.
+\"Connect\".
 
 .. image:: media/image296.png
    :align: center
@@ -156,8 +150,8 @@ Connection, and input the IP address of Raspberry Pi, then click on
 **Step 3**
 
 Then the xrdp login page pops out. Please type in your username and
-password. After that, please click “OK”. At the first time you log in,
-your username is “pi” and the password is “raspberry”.
+password. After that, please click \"OK\". At the first time you log in,
+your username is \"pi\" and the password is \"raspberry\".
 
 .. image:: media/image297.png
    :align: center
@@ -166,7 +160,7 @@ your username is “pi” and the password is “raspberry”.
 
 Here, you successfully login to RPi by using the remote desktop.
 
-.. image:: media/image298.png
+.. image:: media/image20.png
    :align: center
 
 **Copyright Notice**

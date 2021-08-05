@@ -163,11 +163,7 @@ For Python Users:
 
     sudo python3 05_rgb.py
 
-Here you should see the RGB LED flash different colors in turn.
-
-.. image:: media/image107.png
-    :align: center
-
+Here you should see the RGB LED flash different colors in turn.    
 
 **Code**    
     
@@ -221,6 +217,13 @@ Here you should see the RGB LED flash different colors in turn.
         for i in pins:
             GPIO.output(pins[i], GPIO.HIGH)    # Turn off all leds
         GPIO.cleanup()
+
+
+
+
+.. image:: media/image107.png
+    :align: center
+
 
         
 Further Exploration

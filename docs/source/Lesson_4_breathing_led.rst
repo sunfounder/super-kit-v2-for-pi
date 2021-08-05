@@ -156,9 +156,6 @@ Now you will see the gradual change of the LED luminance, between bright
 and dim.
 
 
-.. image:: media/image104.png
-    :align: center
-
 **Code**
 
 .. code-block:: python
@@ -198,6 +195,11 @@ and dim.
             loop()
         except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
             destroy()
+
+
+
+.. image:: media/image104.png
+    :align: center
 
 Summary
 -------------

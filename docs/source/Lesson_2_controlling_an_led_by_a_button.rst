@@ -142,8 +142,7 @@ again, and the LED will go out. At the same time, the state of the LED
 will be printed on the screen.
 
 
-.. image:: media/image94.png
-    :align: center
+
 
 
 **Code**
@@ -189,6 +188,9 @@ will be printed on the screen.
         except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
             destroy()
 
+.. image:: media/image94.png
+    :align: center
+            
 Summary
 ----------------
 

@@ -1,4 +1,4 @@
-SunFounder Super-Kit-V2 for Raspberry Pi
+SunFounder Super Kit V2 for Raspberry Pi
 ===========================================================
 
 
@@ -13,7 +13,7 @@ Now get on the road!
 
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
 
     components_List
     preparation/preparation
@@ -21,7 +21,7 @@ Now get on the road!
     Raspberry_Pi_GPIO_Extension_Board
     download_the_code
     lessons
-    appendix
+    appendix/appendix
 
 Copyright Notice
 --------------------------

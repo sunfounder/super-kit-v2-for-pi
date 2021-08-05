@@ -183,10 +183,6 @@ For Python Users:
 You should see two lines of characters displayed on the LCD1602:
 \"**SUNFOUNDER**\" and \"**Hello World ! :)**\".
 
-
-.. image:: media/image151.png
-    :align: center
-
 **Code**    
     
 .. code-block:: python
@@ -420,6 +416,12 @@ You should see two lines of characters displayed on the LCD1602:
             loop()
         except KeyboardInterrupt:
             destroy()
+
+
+
+
+.. image:: media/image151.png
+    :align: center
 
 Further Exploration
 -----------------------
