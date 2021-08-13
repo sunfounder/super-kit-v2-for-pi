@@ -90,23 +90,38 @@ For C Language Users:
 
 **Step 2:** Change directory.
 
+.. raw:: html
+
+    <run></run>
+    
 .. code-block::
 
-    cd/home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/13_LCD1602/
+    cd /home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/13_LCD1602/
 
 **Step 3:** Compile.
 
+.. raw:: html
+
+    <run></run>
+    
 .. code-block::
 
     gcc lcd1602_2.c -o lcd1602_2 -lwiringPiDev -lwiringPi
 
 **Step 4:** Run.
 
+.. raw:: html
+
+    <run></run>
+    
 .. code-block::
 
     sudo ./lcd1602_2
 
+    
+.. note::
 
+    If it does not work after running, please refer to :ref:`C code is not working?`
 
 **Code**
 
@@ -170,12 +185,20 @@ For Python Users:
 
 **Step 2:** Change directory.
 
+.. raw:: html
+
+    <run></run>
+    
 .. code-block::
 
-    cd/home/pi/Sunfounder_SuperKit_Python_code_for_RaspberryPi/
+    cd /home/pi/Sunfounder_SuperKit_Python_code_for_RaspberryPi/
 
 **Step 3:** Run.
 
+.. raw:: html
+
+    <run></run>
+    
 .. code-block::
 
     sudo python3 13_lcd1602.py
@@ -184,6 +207,10 @@ You should see two lines of characters displayed on the LCD1602:
 \"**SUNFOUNDER**\" and \"**Hello World ! :)**\".
 
 **Code**    
+    
+.. raw:: html
+
+    <run></run>
     
 .. code-block:: python
 

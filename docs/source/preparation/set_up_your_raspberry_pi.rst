@@ -18,9 +18,9 @@ Any Raspberry Pi   1 \* Power Adapter
 
 1) Insert the SD card you’ve set up with Raspberry Pi OS into the micro SD card slot on the underside of your Raspberry Pi.
 
-1) Plug in the Mouse and Keyboard.
+2) Plug in the Mouse and Keyboard.
 
-2) Connect the screen to Raspberry Pi’s HDMI port and make sure your screen is plugged into a wall socket and switched on.
+3) Connect the screen to Raspberry Pi’s HDMI port and make sure your screen is plugged into a wall socket and switched on.
 
 .. note::
     If you use a Raspberry Pi 4, you need to connect the screen to the HDMI0 (nearest the power in port).

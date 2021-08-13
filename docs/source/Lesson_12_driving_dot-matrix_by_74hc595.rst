@@ -88,22 +88,38 @@ For C Language Users:
 
 **Step 2:** Change directory.
 
+.. raw:: html
+
+    <run></run>
+
 .. code-block::
 
-    cd/home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/12_DotMatrix/
+    cd /home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/12_DotMatrix/
 
 **Step 3**: Compile.
 
+.. raw:: html
+
+    <run></run>
+    
 .. code-block::
 
     gcc dotMatrix.c -o dotMatrix -lwiringPi
 
 **Step 4**: Run.
 
+.. raw:: html
+
+    <run></run>
+    
 .. code-block::
 
     sudo ./dotMatrix
 
+    
+.. note::
+
+    If it does not work after running, please refer to :ref:`C code is not working?`
 
 **Code**
 
@@ -190,20 +206,32 @@ For Python Users:
 
 **Step 2:** Change directory.
 
+.. raw:: html
+
+    <run></run>
+    
 .. code-block::
 
-    cd/home/pi/Sunfounder_SuperKit_Python_code_for_RaspberryPi/
+    cd /home/pi/Sunfounder_SuperKit_Python_code_for_RaspberryPi/
 
 **Step 3**: Run.
 
+.. raw:: html
+
+    <run></run>
+    
 .. code-block::
 
-    sudo python3 12_DotMatrix.py
+    sudo python3 12_dotMatrix.py
 
 You should see LEDs light up as you control.
 
 
 **Code**    
+    
+.. raw:: html
+
+    <run></run>
     
 .. code-block:: python
 

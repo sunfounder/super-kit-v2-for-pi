@@ -5,6 +5,9 @@ SPI Configuration
 enabled it, skip this; if you do not know whether you have done that or
 not, please continue).
 
+.. raw:: html
+
+    <run></run>
 
 .. code-block:: 
 
@@ -28,6 +31,10 @@ not, please continue).
 **Step 2:** Check that the spi modules are loaded and active.
 
 
+.. raw:: html
+
+    <run></run>
+
 .. code-block:: 
 
     ls /dev/sp*
@@ -41,6 +48,9 @@ Then the following codes will appear (the number may be different).
 
 **Step 3:** Install Python module SPI-Py.
 
+.. raw:: html
+
+    <run></run>
 
 .. code-block:: 
 

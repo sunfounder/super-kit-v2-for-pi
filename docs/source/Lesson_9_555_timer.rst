@@ -104,11 +104,19 @@ For C Language Users:
 
 **Step 2:** Change directory.
 
+.. raw:: html
+
+    <run></run>
+
 .. code-block::
 
-    cd/home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/09_Timer555/
+    cd /home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/09_Timer555/
 
 **Step 3**: Compile.
+
+.. raw:: html
+
+    <run></run>
 
 .. code-block::
 
@@ -116,9 +124,17 @@ For C Language Users:
 
 **Step 4**: Run.
 
+.. raw:: html
+
+    <run></run>
+
 .. code-block::
 
     sudo ./timer555
+
+.. note::
+
+    If it does not work after running, please refer to :ref:`C code is not working?`
 
 **Code**
 
@@ -150,6 +166,7 @@ For C Language Users:
     
        while(1){
         printf("Current pluse number is : %d\n", globalCounter);
+        delay(100);
       }
     
       return 0;
@@ -161,11 +178,19 @@ For Python Users:
 
 **Step 2:** Change directory.
 
+.. raw:: html
+
+    <run></run>
+
 .. code-block::
 
-    cd/home/pi/Sunfounder_SuperKit_Python_code_for_RaspberryPi/
+    cd /home/pi/Sunfounder_SuperKit_Python_code_for_RaspberryPi/
 
 **Step 3**: Run.
+
+.. raw:: html
+
+    <run></run>
 
 .. code-block::
 
@@ -178,9 +203,14 @@ have learned previously.
 
 **Code**    
     
+.. raw:: html
+
+    <run></run>
+
 .. code-block:: python
 
     import RPi.GPIO as GPIO
+    import time
 
     SigPin = 17
 
@@ -198,6 +228,7 @@ have learned previously.
     def loop():
         while True:
             print ("g_count = %d" % g_count)
+            time.sleep(0.2)
 
     def destroy():
         GPIO.cleanup()    # Release resource

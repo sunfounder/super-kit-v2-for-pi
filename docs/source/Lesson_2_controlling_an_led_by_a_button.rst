@@ -76,11 +76,19 @@ For C Language Users:
 
 **Step 2:** Change directory.
 
+.. raw:: html
+
+    <run></run>
+
 .. code-block::
 
-    cd/home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/02_BtnAndLed/
+    cd /home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/02_BtnAndLed/
 
 **Step 3:** Compile.
+
+.. raw:: html
+
+    <run></run>
 
 .. code-block::
 
@@ -88,9 +96,17 @@ For C Language Users:
 
 **Step 4:** Run.
 
+.. raw:: html
+
+    <run></run>
+
 .. code-block::
 
     sudo ./BtnAndLed
+
+.. note::
+
+    If it does not work after running, please refer to :ref:`C code is not working?`
 
 **Code**
 
@@ -127,11 +143,20 @@ For C Language Users:
 
 **Step 2:** Change directory.
 
+
+.. raw:: html
+
+    <run></run>
+
 .. code-block::
 
-    cd/home/pi/Sunfounder_SuperKit_Python_code_for_RaspberryPi/
+    cd /home/pi/Sunfounder_SuperKit_Python_code_for_RaspberryPi/
 
 **Step 3:** Run.
+
+.. raw:: html
+
+    <run></run>
 
 .. code-block::
 
@@ -142,10 +167,11 @@ again, and the LED will go out. At the same time, the state of the LED
 will be printed on the screen.
 
 
-
-
-
 **Code**
+
+.. raw:: html
+
+    <run></run>
 
 .. code-block:: python    
         

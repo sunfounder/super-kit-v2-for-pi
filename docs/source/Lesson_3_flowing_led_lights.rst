@@ -65,11 +65,20 @@ For C Language Users:
 
 **Step 3:** Change directory.
 
+
+.. raw:: html
+
+    <run></run>
+
 .. code-block::
 
-    cd/home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/03_8Led/
+    cd /home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/03_8Led/
 
 **Step 4:** Compile.
+
+.. raw:: html
+
+    <run></run>
 
 .. code-block::
 
@@ -77,9 +86,18 @@ For C Language Users:
 
 **Step 5:** Run.
 
+.. raw:: html
+
+    <run></run>
+
 .. code-block::
 
     sudo ./8Led
+
+
+.. note::
+
+    If it does not work after running, please refer to :ref:`C code is not working?`
 
 **Code**
 
@@ -139,11 +157,19 @@ For Python Users:
 
 **Step 3:** Change directory.
 
+.. raw:: html
+
+    <run></run>
+
 .. code-block::
 
-    cd/home/pi/Sunfounder_SuperKit_Python_code_for_RaspberryPi/
+    cd /home/pi/Sunfounder_SuperKit_Python_code_for_RaspberryPi/
 
 **Step 4:** Run.
+
+.. raw:: html
+
+    <run></run>
 
 .. code-block::
 
@@ -153,6 +179,10 @@ Then you will see eight LEDs brighten and dim left to right and right to
 left circularly, just like flowing water.
 
 **Code**
+
+.. raw:: html
+
+    <run></run>
 
 .. code-block:: python
 

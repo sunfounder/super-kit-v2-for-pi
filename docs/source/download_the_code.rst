@@ -1,11 +1,15 @@
 Download the Code
 ====================
 
-Change directory to */home/pi*
+Change directory to */home/pi*.
+
+.. raw:: html
+
+    <run></run>
 
 .. code-block::
 
-    cd/home/pi/
+    cd /home/pi/
 
 .. note:: 
 
@@ -13,11 +17,19 @@ Change directory to */home/pi*
     directory from the current path. Informally, here is to go to the path
     */home/pi/*.
 
-Clone the repository from GitHub (C code and python code)
+Clone the repository from GitHub (C code and python code).
+
+.. raw:: html
+
+    <run></run>
 
 .. code-block::
 
     git clone https://github.com/sunfounder/Sunfounder_SuperKit_C_code_for_RaspberryPi.git
+
+.. raw:: html
+
+    <run></run>
 
 .. code-block::
 

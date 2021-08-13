@@ -84,11 +84,19 @@ For C Language Users:
 
 **Step 2:** Change directory.
 
+.. raw:: html
+
+    <run></run>
+
 .. code-block::
     
-    cd/home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/04_PwmLed
+    cd /home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/04_PwmLed
 
 **Step 3**: Compile.
+
+.. raw:: html
+
+    <run></run>
 
 .. code-block::
     
@@ -96,9 +104,18 @@ For C Language Users:
 
 **Step 4**: Run.
 
+.. raw:: html
+
+    <run></run>
+
 .. code-block::
     
     sudo ./PwmLed
+
+
+.. note::
+
+    If it does not work after running, please refer to :ref:`C code is not working?`
 
 **Code**
 
@@ -142,11 +159,19 @@ For Python Users:
 
 **Step 2:** Change directory.
 
+.. raw:: html
+
+    <run></run>
+
 .. code-block::
     
-    cd/home/pi/Sunfounder_SuperKit_Python_code_for_RaspberryPi/
+    cd /home/pi/Sunfounder_SuperKit_Python_code_for_RaspberryPi/
 
 **Step 3**: Run.
+
+.. raw:: html
+
+    <run></run>
 
 .. code-block::
     
@@ -157,6 +182,10 @@ and dim.
 
 
 **Code**
+
+.. raw:: html
+
+    <run></run>
 
 .. code-block:: python
     

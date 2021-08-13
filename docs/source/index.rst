@@ -22,6 +22,7 @@ Now get on the road!
     download_the_code
     lessons
     appendix/appendix
+    faq
 
 Copyright Notice
 --------------------------

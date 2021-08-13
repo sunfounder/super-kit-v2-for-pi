@@ -112,22 +112,38 @@ For C Language Users:
 
 **Step 2:** Change directory.
 
+.. raw:: html
+
+    <run></run>
+  
 .. code-block::
 
-    cd/home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/11_Segment/
+    cd /home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/11_Segment/
 
 **Step 3**: Compile.
 
+.. raw:: html
+
+    <run></run>
+  
 .. code-block::
 
     gcc segment1.c -o segment1 -lwiringPi
 
 **Step 4**: Run.
 
+.. raw:: html
+
+    <run></run>
+  
 .. code-block::
 
     sudo ./segment1
 
+.. note::
+
+    If it does not work after running, please refer to :ref:`C code is not working?`
+    
 **Code**
 
 .. code-block:: c 
@@ -194,12 +210,20 @@ For Python Users:
 
 **Step 2:** Change directory.
 
+.. raw:: html
+
+    <run></run>
+  
 .. code-block::
 
-    cd/home/pi/Sunfounder_SuperKit_Python_code_for_RaspberryPi/
+    cd /home/pi/Sunfounder_SuperKit_Python_code_for_RaspberryPi/
 
 **Step 3**: Run.
 
+.. raw:: html
+
+    <run></run>
+  
 .. code-block::
 
     sudo python3 11_segment.py
@@ -208,6 +232,10 @@ You should see the 7-segment display from 0 to 9, and A to F.
 
 **Code**    
     
+.. raw:: html
+
+    <run></run>
+  
 .. code-block:: python
 
     import RPi.GPIO as GPIO
@@ -281,7 +309,7 @@ Build the circuit:
 
 .. code-block::
 
-    cd/home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/11_Segment/
+    cd /home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/11_Segment/
 
     gcc dice.c -lwiringPi
 

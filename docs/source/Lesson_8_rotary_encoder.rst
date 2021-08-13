@@ -84,22 +84,38 @@ For C Language Users:
 
 **Step 2:** Change directory.
 
+.. raw:: html
+
+    <run></run>
+
 .. code-block::
 
-    cd/home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/08_RotaryEncoder/
+    cd /home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/08_RotaryEncoder/
 
 **Step 3:** Compile.
 
+.. raw:: html
+
+    <run></run>
+
 .. code-block::
 
-    gcc rotaryEncoder.c -o rotaryEncoder **-**\ lwiringPi
+    gcc rotaryEncoder.c -o rotaryEncoder -lwiringPi
 
 **Step 4:** Run.
+
+.. raw:: html
+
+    <run></run>
 
 .. code-block::
 
     sudo ./rotaryEncoder
 
+.. note::
+
+    If it does not work after running, please refer to :ref:`C code is not working?`
+    
 **Code**
 
 .. code-block:: c   
@@ -179,11 +195,19 @@ For Python Users:
 
 **Step 2:** Change directory.
 
+.. raw:: html
+
+    <run></run>
+
 .. code-block::
 
-    cd/home/pi/Sunfounder_SuperKit_Python_code_for_RaspberryPi/
+    cd /home/pi/Sunfounder_SuperKit_Python_code_for_RaspberryPi/
 
 **Step 3:** Run.
+
+.. raw:: html
+
+    <run></run>
 
 .. code-block::
 
@@ -196,6 +220,10 @@ counterclockwise, the value will decrease.
 
 **Code**    
     
+.. raw:: html
+
+    <run></run>
+
 .. code-block:: python
 
     import RPi.GPIO as GPIO

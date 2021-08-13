@@ -55,30 +55,46 @@ For C Language Users:
 
 **Step 2:** Change directory.
 
+.. raw:: html
+
+    <run></run>
+    
 .. code-block::
 
-    cd/home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/14_ADXL345/
+    cd /home/pi/Sunfounder_SuperKit_C_code_for_RaspberryPi/14_ADXL345/
 
 **Step 3:** Compile.
 
+.. raw:: html
+
+    <run></run>
+  
 .. code-block::
 
     gcc adxl345.c -o adxl345 -lwiringPi
 
 **Step 4:** Run.
 
+.. raw:: html
+
+    <run></run>
+  
 .. code-block::
 
     sudo ./adxl345
 
 
+    
+.. note::
 
+    If it does not work after running, please refer to :ref:`C code is not working?`
 
 **Code**
 
 .. code-block:: c 
 
     #include <wiringPiI2C.h>
+    #include <wiringPi.h>
     #include <stdio.h>
     #include <stdlib.h>
     #include <errno.h>
@@ -177,12 +193,20 @@ For Python Users:
 
 **Step 2:** Change directory.
 
+.. raw:: html
+
+    <run></run>
+  
 .. code-block::
 
-    cd/home/pi/Sunfounder_SuperKit_Python_code_for_RaspberryPi
+    cd /home/pi/Sunfounder_SuperKit_Python_code_for_RaspberryPi
 
 **Step 3:** Run.
 
+.. raw:: html
+
+    <run></run>
+  
 .. code-block::
 
     sudo python3 14_ADXL345.py
@@ -192,6 +216,10 @@ printed on the screen change.
 
 **Code**    
     
+.. raw:: html
+
+    <run></run>
+  
 .. code-block:: python
 
     from I2C import I2C
