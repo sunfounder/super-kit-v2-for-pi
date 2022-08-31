@@ -260,7 +260,7 @@ printed on the screen change.
         ADXL345_RANGE_8_G        = 0x02 # +/-  8g
         ADXL345_RANGE_16_G       = 0x03 # +/- 16g
     
-        def __init__(self, busnum=-1, debug=False):
+        def __init__(self, busnum=1, debug=False):
             self.accel = I2C(self.ADXL345_ADDRESS, busnum, debug)
             if self.accel.readU8(self.ADXL345_REG_DEVID) == 0xE5:
                 # Enable the accelerometer
@@ -298,29 +298,17 @@ printed on the screen change.
                 res.append(g)
             return res
     
-    def print_msg():
-        print ("========================================")
-        print ("|                ADXL345               |")
-        print ("|    ------------------------------    |")
-        print ("|          SCL connect to SCL          |")
-        print ("|          SDA connect to SDA          |")
-        print ("|                                      |")
-        print ("|        Read value from ADXL345       |")
-        print ("|                                      |")
-        print ("|                            SunFounder|")
-        print ("========================================\n")
-        print ("Program is running...")
-        print ("Please press Ctrl+C to end the program...")
-        raw_input ("Press anykey to begin\n")
-    
-    # Simple example prints accelerometer data once per second:
-    def main():
-        accel = ADXL345()
-        while True:
-            x, y, z = accel.read()
-            print ("X: %d, Y: %d, Z: %d"%(x, y, z))
-            print (" ")
-            sleep(1) # Output is fun to watch if this is commented out
+	# Simple example prints accelerometer data once per second:
+	def main():
+		accel = ADXL345()
+		accel.setRange(accel.ADXL345_RANGE_16_G)
+		while True:
+			x, y, z = accel.read()
+			print('X: %.2f, Y: %.2f, Z: %.2f'%(x, y, z))
+			sleep(1) # Output is fun to watch if this is commented out
+
+	def destroy():
+		exit()
     
     def destroy():
         exit()
